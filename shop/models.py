@@ -12,3 +12,4 @@ class Mahsulot(models.Model):
     soni = models.IntegerField(default=10)
     toifasi = models.ForeignKey(Toifa, null=True, on_delete=models.CASCADE)
     rasm = models.ImageField(null=True)
+    

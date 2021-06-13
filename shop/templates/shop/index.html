@@ -1,9 +1,9 @@
+{% extends './wrapper-base.html' %}
 
-{% extends 'shop/wrapper.html' %}
+
 
 {% block content %}
-<div class="col-9 ">
-        <div class="row">
+<div class="row">
             {% for mahsulot in mahsulotlar %}
             <div class="card-group col shadow-sm">
                 <div class="rasm_bloki">
@@ -17,6 +17,8 @@
                         <div class="btn-group">
                             <button type="button" class="btn btn-sm btn-info">Harid</button>
                             <button type="button" class="btn btn-sm btn-success">Savatga</button>
+                            <br>
+                            <button type="button" class="btn btn-sm btn-success"><a href="{% url 'batafsil' mahsulot.id %}">Batafsil</a></button>
                         </div>
                         <small class="text-muteed">{{ mahsulot.narx }} $</small>
                     </div>
@@ -49,6 +51,23 @@
             {% endif %}
         </ul>
     </nav>
-  </div>
+{% endblock %}
 
+
+
+{% block title %}
+Ilyos
+{% endblock %}
+    
+
+{% block category %}
+{% for kategoriya in kategoriyalar %}
+              <ul>
+                  <a style="text-decoration:none" href="{% url 'category' kategoriya.id %}">
+                      <li style="background: inherit;" class="toifa-nomi">
+                          {{ kategoriya.nomi }}
+                      </li>
+                  </a>
+              </ul>
+{%endfor%}
 {% endblock %}
